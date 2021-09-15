@@ -12,6 +12,7 @@ sudo apt install curl -y
 sudo apt install git -y
 
 # oh my zsh
+# Go to https://ohmyz.sh/#install for latest version
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
