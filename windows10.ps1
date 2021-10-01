@@ -77,7 +77,7 @@ Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage
 # Sound Recorder
 Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
 # Mail & Calendar
-Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
+#Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
 # Skype (Metro version)
 Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage
 
