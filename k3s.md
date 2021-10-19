@@ -54,3 +54,68 @@ sudo systemctl status k3s
 sudo kubectl get nodes -o wide
 ```
 
+**Firewall, all servers**
+
+```bash
+sudo ufw allow 6443/tcp
+sudo ufw allow 443/tcp
+```
+
+**Get token from master**
+
+```
+sudo cat /var/lib/rancher/k3s/server/node-token
+```
+
+K10a62e3c1e91a340d14c2eeaabf4d3c59aed376c604a2833b30824818e2540cb5d::server:f5e1b7b8b5ff93a155e16e227dee78e2
+
+
+
+**Workers**
+
+```
+curl -sfL http://get.k3s.io | K3S_URL=https://<master_IP>:6443 K3S_TOKEN=<join_token> sh -s - --docker
+
+curl -sfL http://get.k3s.io | K3S_URL=https://k3s-master:6443 K3S_TOKEN=K10a62e3c1e91a340d14c2eeaabf4d3c59aed376c604a2833b30824818e2540cb5d::server:f5e1b7b8b5ff93a155e16e227dee78e2 sh -s - --docker
+```
+
+
+
+
+
+k9s ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
