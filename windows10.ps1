@@ -7,13 +7,9 @@
 Set-ExecutionPolicy RemoteSigned -Force
 Install-PackageProvider nuget -Force
 Install-Module PSWindowsUpdate -Force
-if ( (Get-WUList | Measure-Object).Count -gt 0) {
-  Get-WUInstall -Install -AcceptAll -IgnoreReboot
-  exit 1003  # 1003 - reboot and run the plugin again on next boot
-             # https://cloudbase-init.readthedocs.io/en/latest/tutorial.html#file-execution
-}
-Add-Content -Path "\installed_updates.log" -Value (Get-Date)   
-# Writes timestamp to file in root directory (usually C:\) when script has finished updating
+
+Get-WUInstall -Install -AcceptAll -IgnoreReboot -Verbose
+
 
 #########################
 # UI / Privacy Settings
