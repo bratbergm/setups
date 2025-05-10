@@ -58,6 +58,7 @@ Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage
 Get-AppxPackage Microsoft.BingSports | Remove-AppxPackage
 Get-AppxPackage Microsoft.BingFinance | Remove-AppxPackage
+Get-AppxPackage Microsoft.BingSearch | Remove-AppxPackage
 # Xbox:
 Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
 # Windows Phone Companion
@@ -77,10 +78,27 @@ Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage
 # Sound Recorder
 Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
 # Mail & Calendar
-#Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
+Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
 # Skype (Metro version)
 Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage
+# Teams
+Get-AppxPackage MSTeams | Remove-AppxPackage
+# Random
+Get-AppxPackage Microsoft.Todos | Remove-AppxPackage
+Get-AppxPackage Microsoft.OutlookForWindows | Remove-AppxPackage
+Get-AppxPackage Microsoft.PowerAutomateDesktop | Remove-AppxPackage
+Get-AppxPackage Microsoft.MicrosoftEdge.Stable | Remove-AppxPackage
+# Feed/widget
+Get-AppxPackage | Where-Object Name -Match "webExperience" | Remove-AppxPackage
 
 
 # Source: https://gist.github.com/NickCraver/7ebf9efbfd0c3eab72e9
 #		  https://gitlab.com/erikhje/dcsg1005/-/blob/master/compendia.md
+
+
+# install Firefox
+$url= "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+$installer = $env:TEMP + "\firefox.exe"
+Invoke-WebRequest $url -OutFile $installer
+Start-Process -FilePath $installer -Args "/s" -Verb RunAs -Wait;
+Remove-Item $installer
