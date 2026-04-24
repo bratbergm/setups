@@ -41,10 +41,6 @@ If (-Not (Test-Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Perso
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Type DWord -Value 0
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Type DWord -Value 0
 
-# Disable auto restart after Windows updates (While logged in)
-Set-ItemProperty -Path HKLM \Software\Policies\Microsoft\Windows\WindowsUpdate\AU -Name “NoAutoRebootWithLoggedOnUsers” -Value 1
-
-
 #########################
 # Windows 10  App Removals
 #########################
